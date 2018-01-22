@@ -73,4 +73,11 @@ public class DataModelTest {
         Mockito.when(spyDataRepository.isNetworkConnected()).thenReturn(false);
         assertFalse(spyDataRepository.isNetworkConnected());
     }
+
+    @Test
+    public void testFinalMethod() {
+//        DataModel dataModel = Mockito.mock(DataModel.class);
+//        Mockito.when(dataModel.finalMethod()).thenReturn(true);
+//        assertTrue(dataModel.finalMethod());
+    }
 }

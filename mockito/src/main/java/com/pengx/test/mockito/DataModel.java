@@ -31,4 +31,8 @@ public class DataModel {
         });
     }
 
+    public final boolean finalMethod() {
+        return false;
+    }
+
 }
