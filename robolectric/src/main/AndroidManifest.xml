@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.pengx.test.robolectric">
+    <application
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+                android:name=".RobolectricTestActivity" android:screenOrientation="portrait"/>
+
+        <activity android:name=".LifeCircleTestActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

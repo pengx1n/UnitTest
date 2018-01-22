@@ -1,1 +1,1 @@
-include ':app', ':mockito', ':powermock', ':junit'
+include ':app', ':mockito', ':powermock', ':junit', ':robolectric'
