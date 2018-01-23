@@ -48,7 +48,6 @@ public class ActivityTest {
         assertNotNull(tv);
         assertEquals("this is a text",tv.getText().toString());
 
-
         btn.performClick();
 
         assertFalse(btn.isEnabled());
@@ -72,7 +71,6 @@ public class ActivityTest {
 
     @Test
     public void testToast() {
-
         RobolectricTestActivity activity = Robolectric.setupActivity(RobolectricTestActivity.class);
         assertNotNull(activity);
 
