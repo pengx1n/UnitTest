@@ -54,11 +54,10 @@ public class EspressoTest {
     public void testRecyclerView() {
         onView(withId(R.id.btn_recyclerview)).perform(click());
 
-        onView(withText("item 0")).check(matches(isDisplayed())).perform(click());
-        onView(withText("确定")).perform(click());
-
         onView(withId(R.id.rv)).perform(RecyclerViewActions.scrollToPosition(20));
         onView(withText("item 20")).check(matches(isDisplayed())).perform(click());
+
+        onView(withText("确定")).perform(click());
 
         pressBack();
     }

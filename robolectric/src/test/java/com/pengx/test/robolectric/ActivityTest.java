@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
-import org.robolectric.shadows.ShadowApplication;
+import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.shadows.ShadowLog;
 import org.robolectric.shadows.ShadowToast;
 
@@ -64,9 +65,9 @@ public class ActivityTest {
 
         btnNext.performClick();
 
-        Intent expectedIntent = new Intent(activity, LifeCircleTestActivity.class);
-        Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
-        assertEquals(expectedIntent.getComponent(), actual.getComponent());
+        ShadowActivity shadowActivity = Shadows.shadowOf(activity);
+        Intent nextIntent = shadowActivity.getNextStartedActivity();
+        assertEquals(LifeCircleTestActivity.class.getName(), nextIntent.getComponent().getClassName());
     }
 
     @Test
@@ -79,6 +80,7 @@ public class ActivityTest {
 
         btn.performClick();
         assertEquals(ShadowToast.getTextOfLatestToast(),"Test Toast");
+
     }
 
     @Test

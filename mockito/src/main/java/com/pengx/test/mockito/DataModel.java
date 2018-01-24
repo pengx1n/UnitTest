@@ -7,6 +7,8 @@ import com.pengx.test.mockito.DataRepository.Callback;
  */
 public class DataModel {
 
+    //...
+
     private DataRepository mDataRepository;
 
     public DataRepository getDataRepository() {
