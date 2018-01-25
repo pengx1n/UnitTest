@@ -73,7 +73,7 @@ public class LoginPresenterTest {
 
         //login 失败
         mCallback.getValue().onFailure(500, "Server error");
-        Mockito.verify(mView).loginFailed();
+        Mockito.verify(mView).loginFailure();
 
         //login 成功
         mCallback.getValue().onSuccess(null);

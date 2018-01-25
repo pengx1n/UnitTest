@@ -73,8 +73,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
     }
 
     @Override
-    public void loginFailed() {
-        Log.d(TAG, "loginFailed");
+    public void loginFailure() {
+        Log.d(TAG, "loginFailure");
     }
 
     public boolean hideInputMethod(View view) {

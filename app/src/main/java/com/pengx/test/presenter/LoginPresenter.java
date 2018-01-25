@@ -37,7 +37,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
             @Override
             public void onFailure(int code, String msg) {
-                mView.loginFailed();
+                mView.loginFailure();
             }
 
             @Override

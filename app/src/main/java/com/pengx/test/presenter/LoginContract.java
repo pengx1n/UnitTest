@@ -12,7 +12,7 @@ public interface LoginContract {
 
         void loginSuccess();
 
-        void loginFailed();
+        void loginFailure();
     }
 
     interface Presenter {

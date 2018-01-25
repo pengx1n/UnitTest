@@ -26,4 +26,16 @@ public class LifeCircleTestActivity extends AppCompatActivity {
 
         tv.setText("onResume");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        tv.setText("onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        tv.setText("onStop");
+    }
 }
