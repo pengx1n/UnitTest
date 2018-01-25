@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:orientation="vertical">
+
+        <EditText android:layout_width="match_parent" android:layout_height="50dp"
+                  android:textSize="15sp"
+                  android:hint="请输入账号"
+                  android:id="@+id/et_account"/>
+
+        <EditText android:layout_width="match_parent" android:layout_height="50dp"
+                  android:textSize="15sp"
+                  android:hint="请输入密码"
+                  android:inputType="textPassword"
+                  android:id="@+id/et_password"/>
+
+        <Button android:layout_width="match_parent"
+                android:id="@+id/btn_login"
+                android:layout_marginTop="20dp"
+                android:layout_height="50dp"
+                android:textSize="15sp"
+                android:text="登录"/>
+
+    </LinearLayout>
+
+    <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content"
+                 android:id="@+id/progress_view"
+                 android:visibility="gone"
+                 android:layout_gravity="center"
+                 style="@style/Widget.AppCompat.ProgressBar"/>
+
+</FrameLayout>
