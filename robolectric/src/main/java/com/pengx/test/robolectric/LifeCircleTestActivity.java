@@ -12,6 +12,12 @@ public class LifeCircleTestActivity extends AppCompatActivity {
 
     private TextView tv;
 
+    private boolean isResume = false;
+
+    public boolean isResume() {
+        return isResume;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +31,7 @@ public class LifeCircleTestActivity extends AppCompatActivity {
         super.onResume();
 
         tv.setText("onResume");
+        isResume = true;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.pengx.test.robolectric;
 
-import android.app.Activity;
 import android.widget.TextView;
 
 import org.junit.Test;
@@ -11,7 +10,9 @@ import org.robolectric.android.controller.ActivityController;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author PengXin
@@ -23,14 +24,16 @@ public class LifeCircleTest {
     @Test
     public void testTvAfterOnResume() {
         ActivityController controller = Robolectric.buildActivity(LifeCircleTestActivity.class).create().start();
-        Activity activity = (Activity) controller.get();
+        LifeCircleTestActivity activity = (LifeCircleTestActivity) controller.get();
         assertNotNull(activity);
 
         TextView tv = activity.findViewById(R.id.tv);
         assertEquals("life circle",tv.getText().toString());
+
+        assertFalse(activity.isResume());
         controller.resume();
         assertEquals("onResume",tv.getText().toString());
-
+        assertTrue(activity.isResume());
     }
 
 }

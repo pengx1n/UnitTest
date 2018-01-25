@@ -64,7 +64,19 @@ public class LoginPresenterTest {
 
     @Test
     public void testLogin() throws Exception {
+//        Mockito.doAnswer(new Answer() {
+//            @Override
+//            public Object answer(InvocationOnMock invocation) throws Throwable {
+//                Object[] arguments = invocation.getArguments();
+//                Callback callback = (Callback) arguments[2];
+//                callback.onFailure(500, "Server error");
+//                return 500;
+//            }
+//        }).when(mDataRepository).login(any(String.class), any(String.class),any(Callback.class));
+
+        //登录操作
         mPresenter.login("123456@qq.com", "123456");
+
         //验证显示loading
         Mockito.verify(mView, times(1)).setProgressVis(any(Boolean.class));
 
