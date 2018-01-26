@@ -19,6 +19,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.times;
@@ -79,8 +80,11 @@ public class LoginPresenterTest {
         //验证显示loading
         Mockito.verify(mView, times(1)).setProgressVis(any(Boolean.class));
 
+        ArgumentCaptor<String> accountCaptor = ArgumentCaptor.forClass(String.class);
         //验证调用 DataRepository.login()
-        Mockito.verify(mDataRepository, times(1)).login(any(String.class), any(String.class), mCallback.capture());
+        Mockito.verify(mDataRepository, times(1)).login(accountCaptor.capture(), any(String.class), mCallback.capture());
+        //验证传参
+        assertEquals("123456@qq.com", accountCaptor.getValue());
 
         //login 失败
         mCallback.getValue().onFailure(500, "Server error");
