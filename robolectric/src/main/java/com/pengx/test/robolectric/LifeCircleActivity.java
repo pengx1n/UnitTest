@@ -8,7 +8,7 @@ import android.widget.TextView;
 /**
  * @author PengXin
  */
-public class LifeCircleTestActivity extends AppCompatActivity {
+public class LifeCircleActivity extends AppCompatActivity {
 
     private TextView tv;
 

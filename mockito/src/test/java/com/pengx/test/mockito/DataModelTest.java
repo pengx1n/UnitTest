@@ -9,6 +9,7 @@ import org.mockito.stubbing.Answer;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 
 /**
  * @author PengXin
@@ -19,20 +20,7 @@ public class DataModelTest {
     public void testLoadData() {
         //mock对象
         DataRepository mockDataRepository = Mockito.mock(DataRepository.class);
-
-        DataModel dataModel = new DataModel();
-        dataModel.setDataRepository(mockDataRepository);
-        dataModel.loadData();
-
-        //验证方法被调用
-        Mockito.verify(mockDataRepository).loadData(Mockito.any(Callback.class));
-
-        //验证方法被调用次数
-        Mockito.verify(mockDataRepository, Mockito.times(1)).loadData(Mockito.any(Callback.class));
-
-        //指定方法返回值
-        Mockito.when(mockDataRepository.isNetworkConnected()).thenReturn(false);
-        assertFalse(mockDataRepository.isNetworkConnected());
+        Callback mockCallback = Mockito.mock(Callback.class);
 
         //指定Callback回调方法
         Mockito.doAnswer(new Answer() {
@@ -43,19 +31,23 @@ public class DataModelTest {
                 callback.onFailure(500, "Server error");
                 return 500;
             }
-        }).when(mockDataRepository).loadData(Mockito.any(Callback.class));
+        }).when(mockDataRepository).loadData(any(Callback.class));
 
-        mockDataRepository.loadData(new Callback() {
-            @Override
-            public void onSuccess(Object data) {
-                System.out.print("onSuccess");
-            }
+        DataModel dataModel = new DataModel();
+        dataModel.setDataRepository(mockDataRepository);
+        dataModel.loadData(mockCallback);
 
-            @Override
-            public void onFailure(int code, String msg) {
-                System.out.print("onFailure - " + code + "  msg:"+msg);
-            }
-        });
+        //验证方法被调用
+        Mockito.verify(mockDataRepository).loadData(any(Callback.class));
+
+        //验证方法被调用次数
+        Mockito.verify(mockDataRepository, Mockito.times(1)).loadData(any(Callback.class));
+
+        //指定方法返回值
+        Mockito.when(mockDataRepository.isNetworkConnected()).thenReturn(false);
+        assertFalse(mockDataRepository.isNetworkConnected());
+
+        Mockito.verify(mockCallback).onFailure(any(Integer.class), any(String.class));
     }
 
     @Test
@@ -75,10 +67,10 @@ public class DataModelTest {
         assertFalse(spyDataRepository.isNetworkConnected());
     }
 
-    @Test
-    public void testFinalMethod() {
+//    @Test
+//    public void testFinalMethod() {
 //        DataModel dataModel = Mockito.mock(DataModel.class);
 //        Mockito.when(dataModel.finalMethod()).thenReturn(true);
 //        assertTrue(dataModel.finalMethod());
-    }
+//    }
 }

@@ -13,9 +13,9 @@ import android.widget.Toast;
 /**
  * @author PengXin
  */
-public class RobolectricTestActivity extends AppCompatActivity implements OnClickListener{
+public class RobolectricActivity extends AppCompatActivity implements OnClickListener{
 
-    private static final String TAG = RobolectricTestActivity.class.getSimpleName();
+    private static final String TAG = RobolectricActivity.class.getSimpleName();
 
     private Button mBtn;
     private TextView mTv;
@@ -42,7 +42,7 @@ public class RobolectricTestActivity extends AppCompatActivity implements OnClic
             mTv.setText("Button has been clicked");
             Toast.makeText(this, "Test Toast", Toast.LENGTH_SHORT).show();
         } else if (v.getId() == R.id.btn_next) {
-            Intent i = new Intent(this, LifeCircleTestActivity.class);
+            Intent i = new Intent(this, LifeCircleActivity.class);
             startActivity(i);
         }
     }

@@ -3,7 +3,6 @@ package com.pengx.test.presenter;
 import android.text.TextUtils;
 
 import com.pengx.test.presenter.DataRepository.Callback;
-import com.pengx.test.util.ValidateUtil;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +27,7 @@ import static org.mockito.Mockito.times;
  * @author PengXin
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({TextUtils.class, ValidateUtil.class})
+@PrepareForTest({TextUtils.class})
 @PrepareOnlyThisForTest(DataRepository.class)
 public class LoginPresenterTest {
 

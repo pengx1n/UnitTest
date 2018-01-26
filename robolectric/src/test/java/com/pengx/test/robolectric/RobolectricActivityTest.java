@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 23)
-public class ActivityTest {
+public class RobolectricActivityTest {
 
     @Before
     public void setUp() {
@@ -36,7 +36,7 @@ public class ActivityTest {
 
     @Test
     public void testRobolectrictActivity() {
-        RobolectricTestActivity activity = Robolectric.setupActivity(RobolectricTestActivity.class);
+        RobolectricActivity activity = Robolectric.setupActivity(RobolectricActivity.class);
         assertNotNull(activity);
 
         Button btn = activity.findViewById(R.id.btn);
@@ -57,7 +57,7 @@ public class ActivityTest {
 
     @Test
     public void testToNextActivity() {
-        RobolectricTestActivity activity = Robolectric.setupActivity(RobolectricTestActivity.class);
+        RobolectricActivity activity = Robolectric.setupActivity(RobolectricActivity.class);
         assertNotNull(activity);
 
         Button btnNext = activity.findViewById(R.id.btn_next);
@@ -67,12 +67,12 @@ public class ActivityTest {
 
         ShadowActivity shadowActivity = Shadows.shadowOf(activity);
         Intent nextIntent = shadowActivity.getNextStartedActivity();
-        assertEquals(LifeCircleTestActivity.class.getName(), nextIntent.getComponent().getClassName());
+        assertEquals(LifeCircleActivity.class.getName(), nextIntent.getComponent().getClassName());
     }
 
     @Test
     public void testToast() {
-        RobolectricTestActivity activity = Robolectric.setupActivity(RobolectricTestActivity.class);
+        RobolectricActivity activity = Robolectric.setupActivity(RobolectricActivity.class);
         assertNotNull(activity);
 
         Button btn = activity.findViewById(R.id.btn);

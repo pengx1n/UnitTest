@@ -68,12 +68,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
 
     @Override
     public void loginSuccess() {
+        Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 
     @Override
     public void loginFailure() {
+        Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "loginFailure");
     }
 

@@ -14,6 +14,7 @@ public class StringUtilTest {
         assertTrue(StringUtil.isEmpty(null));
         assertTrue(StringUtil.isEmpty(""));
         assertTrue(StringUtil.isEmpty(" "));
+        assertFalse(StringUtil.isEmpty("123456"));
     }
 
 }

@@ -3,8 +3,8 @@
     <application
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-                android:name=".RobolectricTestActivity" android:screenOrientation="portrait"/>
+                android:name=".RobolectricActivity" android:screenOrientation="portrait"/>
 
-        <activity android:name=".LifeCircleTestActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LifeCircleActivity" android:screenOrientation="portrait"/>
     </application>
 </manifest>

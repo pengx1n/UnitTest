@@ -19,12 +19,12 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 23)
-public class LifeCircleTest {
+public class LifeCircleActivityTest {
 
     @Test
     public void testTvAfterOnResume() {
-        ActivityController controller = Robolectric.buildActivity(LifeCircleTestActivity.class).create().start();
-        LifeCircleTestActivity activity = (LifeCircleTestActivity) controller.get();
+        ActivityController controller = Robolectric.buildActivity(LifeCircleActivity.class).create().start();
+        LifeCircleActivity activity = (LifeCircleActivity) controller.get();
         assertNotNull(activity);
 
         TextView tv = activity.findViewById(R.id.tv);
@@ -35,5 +35,4 @@ public class LifeCircleTest {
         assertEquals("onResume",tv.getText().toString());
         assertTrue(activity.isResume());
     }
-
 }

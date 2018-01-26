@@ -19,18 +19,8 @@ public class DataModel {
         this.mDataRepository = dataRepository;
     }
 
-    public void loadData() {
-        mDataRepository.loadData(new Callback() {
-            @Override
-            public void onSuccess(Object data) {
-
-            }
-
-            @Override
-            public void onFailure(int code, String msg) {
-
-            }
-        });
+    public void loadData(Callback callback) {
+        mDataRepository.loadData(callback);
     }
 
     public final boolean finalMethod() {
